@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1032772721450",
+    "firebase_url": "https://ltm-app-f1714.firebaseio.com",
+    "project_id": "ltm-app-f1714",
+    "storage_bucket": "ltm-app-f1714.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1032772721450:android:5d0f675c46561371d59c53",
+        "android_client_info": {
+          "package_name": "com.anthony.ltmapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1032772721450-5l9rv4vvd971tf614p4jf7p8mhqi4rnb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.anthony.ltmapp",
+            "certificate_hash": "c3f3e7b8ab47445e64cf610dae9a106e5233e28e"
+          }
+        },
+        {
+          "client_id": "1032772721450-a661sscbh06subh78rcgp4qcabesfb4l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzQRrNyeHBEn60QsvhkaOV2MnK2sDY4w4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1032772721450-a661sscbh06subh78rcgp4qcabesfb4l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

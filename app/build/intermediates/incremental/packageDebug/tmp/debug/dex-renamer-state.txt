@@ -1,0 +1,7 @@
+#Mon Jun 01 16:32:41 EAT 2020
+base.0=C\:\\Users\\TBC-TRM\\AndroidStudioProjects\\LTMApp\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
+path.1=classes.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=C\:\\Users\\TBC-TRM\\AndroidStudioProjects\\LTMApp\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
