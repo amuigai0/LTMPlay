@@ -1,2 +1,2 @@
-rootProject.name='LTM App'
+rootProject.name='MusicApplication'
 include ':app'
