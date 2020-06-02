@@ -1,11 +1,14 @@
 package com.example.musicapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -41,6 +44,11 @@ public class PlayerActivity extends AppCompatActivity {
         songTextLabel = (TextView)findViewById(R.id.songTextLabel);
         songSeekBar = (SeekBar)findViewById(R.id.songSeekBar);
 
+        getSupportActionBar().setTitle("Now Playing");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
         updateSeekBar = new Thread(){
             @Override
             public void run() {
@@ -72,8 +80,8 @@ public class PlayerActivity extends AppCompatActivity {
         mySongs = (ArrayList) bundle.getParcelableArrayList("songs");
 
         sname = mySongs.get(position).getName().toString();
-        String songName = i.getStringExtra("songname");
-        songTextLabel.setText(songName);
+        final String songName = i.getStringExtra("songname");
+        songTextLabel.setText(sname);
         songTextLabel.setSelected(true);
 
         position = bundle.getInt("pos", 0);
@@ -83,6 +91,11 @@ public class PlayerActivity extends AppCompatActivity {
 
         myMediaPlayer.start();
         songSeekBar.setMax(myMediaPlayer.getDuration());
+
+
+
+
+
         songSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -112,6 +125,7 @@ public class PlayerActivity extends AppCompatActivity {
                 if (myMediaPlayer.isPlaying()){
 
                     pause.setBackgroundResource(R.drawable.icon_play);
+
                     myMediaPlayer.pause();
                 }
                 else {
@@ -121,5 +135,52 @@ public class PlayerActivity extends AppCompatActivity {
             }
         });
 
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myMediaPlayer.stop();
+                myMediaPlayer.release();
+                position = ((position+1)%mySongs.size());
+
+                Uri u = Uri.parse(mySongs.get(position).toString());
+
+                myMediaPlayer = MediaPlayer.create(getApplicationContext(),u);
+
+                sname = mySongs.get(position).getName().toString();
+                songTextLabel.setText(sname);
+
+                myMediaPlayer.start();
+            }
+        });
+
+        previous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myMediaPlayer.stop();
+                myMediaPlayer.release();
+
+                position = ((position-1)<0)?(mySongs.size()-1):(position-1);
+
+                Uri u = Uri.parse(mySongs.get(position).toString());
+
+                myMediaPlayer = MediaPlayer.create(getApplicationContext(),u);
+
+                sname = mySongs.get(position).getName().toString();
+                songTextLabel.setText(sname);
+
+                myMediaPlayer.start();
+            }
+        });
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if(item.getItemId() ==android.R.id.home){
+            onBackPressed();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

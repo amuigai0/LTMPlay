@@ -45,7 +45,7 @@
             android:marqueeRepeatLimit="marquee_forever"
             android:ellipsize="marquee"
             android:scrollHorizontally="true"
-            android:textColor="@color/colorPrimary"
+            android:textColor="#3700B3"
 
 
             />
@@ -56,6 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
+        android:background="#ffde03"
 
         android:orientation="vertical"
         >
@@ -69,10 +70,15 @@
 
             <SeekBar
                 android:id="@+id/songSeekBar"
-                android:layout_width="406dp"
-                android:layout_height="wrap_content"
+                android:layout_width="407dp"
+                android:layout_height="30dp"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="40dp" />
+                android:layout_marginBottom="40dp"
+
+
+
+
+                />
 
             <Button
                 android:id="@+id/btn_pause"
